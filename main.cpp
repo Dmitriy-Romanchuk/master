@@ -192,8 +192,64 @@ int main()
 	
 	
 
-	cout << fixed << setprecision(2) << '\x9c' << new_pounds;
+	cout << fixed << setprecision(2) << '\x9c' << new_pounds << endl << endl;;
 
+
+	// task 11:----------------------------------------------------------------------------------
+	// By default, output is right - justified in its field.You can left - justify text output using the
+	// manipulator setiosflags(ios::left). (For now, don’t worry about what this new notation means.) 
+	// Use this manipulator, along with setw()
+	
+	cout << "Task 11" << endl;
+	int column_width = 18;
+
+	cout << setfill(' ') << setiosflags(ios::left) << setw(column_width) << "Last name" << setw(column_width)
+		<< "First name" << setw(column_width) << "Address" << setw(column_width) << "City" << endl;
+
+	cout << setfill('-') << setw(65) << "-" << endl;
+
+	cout << setfill(' ') << setiosflags(ios::left) << setw(column_width) << "Jones" << setw(column_width)
+		<< "Bernard" << setw(column_width) << "109 Pine Lane" << setw(column_width) << "Littletown" << endl;
+
+	cout << setiosflags(ios::left) << setw(column_width) << "O’Brian" << setw(column_width)
+		<< "Coleen" << setw(column_width) << "42 E. 99th Ave" << setw(column_width) << "Bigcity" << endl;
+
+	cout << setiosflags(ios::left) << setw(column_width) << "Wong" << setw(column_width)
+		<< "Harry" << setw(column_width) << "A Alabama St" << setw(column_width) << "Lakeville" << endl <<endl;
+
+
+	// task 12:----------------------------------------------------------------------------------
+	// Write the inverse of Exercise 10, so that the user enters an amount in Great Britain’s new
+	// decimal - pounds notation(pounds and pence), and the program converts it to the old
+	// pounds - shillings - pence notation.An example of interaction with the program might be
+	// Enter decimal pounds : 3.51
+	// Equivalent in old notation = £3.10.2.
+	// Make use of the fact that if you assign a floating - point value(say 12.34) to an integer
+	// variable, the decimal fraction(0.34) is lost; the integer value is simply 12. Use a cast to
+	// avoid a compiler warning.You can use statements like
+	// float decpounds; // input from user (new-style pounds)
+	// int pounds; // old-style (integer) pounds
+	// float decfrac; // decimal fraction (smaller than 1.0)
+	// pounds = static_cast<int>(decpounds); // remove decimal fraction
+	// decfrac = decpounds - pounds; // regain decimal fraction
+	// You can then multiply decfrac by 20 to find shillings.A similar operation obtains pence
+	
+
+		cout << "Task 11" << endl;
+		float decpounds;
+		int pounds1, shillings1, pence1;
+		float decfrac, decfrac_pence;
+
+		cout << "Enter decimal pounds:" << endl;
+		cin >> decpounds;
+		
+		pounds1 = static_cast<int>(decpounds); // количество фунтов 3
+		decfrac = decpounds - pounds1; // дробная часть 0,51
+		shillings1 = static_cast<int>(decfrac * 20); // 0,51 умножаем на 20 и отбрасываем после запятой - 10
+		decfrac_pence = decfrac * 20 - shillings1;  //0,51*20 - 10 = 0,2
+		pence1 = static_cast<int>(decfrac_pence * 12);// 0.2*12 = 2
+
+		cout << "Equivalent in old notation: " << char(156) << pounds1 << "." << shillings1 << "." << pence1 << endl << endl;
 
 	return 0;
 }
