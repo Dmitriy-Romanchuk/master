@@ -11,7 +11,6 @@ int main()
 	// enter a number of gallons, and then displays the equivalent in cubic feet
 
 	cout << "Task 1" << endl;
-
 	const float ratio = 7.481f;
 	float user_input;
 
@@ -31,7 +30,6 @@ int main()
 	// Use a single cout statement for all output.
 
 	cout << "Task 2" << endl;
-
 	int year1 = 1990, year2 = 1991, year3 = 1992, year4 = 1993;
 	int count1 = 135, count2 = 7290, count3 = 11300, count4 = 16200;
 	int lenght = 10; //argument for setw
@@ -51,7 +49,6 @@ int main()
 	// and a decrement operator to generate the 19.
 
 	cout << "Task 3" << endl;
-
 	int number = 10;
 
 	cout << number << endl;
@@ -243,11 +240,11 @@ int main()
 		cout << "Enter decimal pounds:" << endl;
 		cin >> decpounds;
 		
-		pounds1 = static_cast<int>(decpounds); // количество фунтов 3
-		decfrac = decpounds - pounds1; // дробная часть 0,51
-		shillings1 = static_cast<int>(decfrac * 20); // 0,51 умножаем на 20 и отбрасываем после запятой - 10
-		decfrac_pence = decfrac * 20 - shillings1;  //0,51*20 - 10 = 0,2
-		pence1 = static_cast<int>(decfrac_pence * 12);// 0.2*12 = 2
+		pounds1 = static_cast<int>(decpounds); 
+		decfrac = decpounds - pounds1; 
+		shillings1 = static_cast<int>(decfrac * 20); 
+		decfrac_pence = decfrac * 20 - shillings1;
+		pence1 = static_cast<int>(decfrac_pence * 12);
 
 		cout << "Equivalent in old notation: " << char(156) << pounds1 << "." << shillings1 << "." << pence1 << endl << endl;
 
