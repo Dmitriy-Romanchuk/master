@@ -12,7 +12,21 @@
 
 int main()
 {
+	struct Phone
+	{
+		int code;
+		int exchange;
+		int number;
+	};
 
+	Phone my_phone {212, 870, 8491};
+	Phone your_phone;
+
+	std::cout << "Enter your area code, exchange, and number: XXX XXX XXXX: ";
+	std::cin >> your_phone.code >> your_phone.exchange >> your_phone.number;
+
+	std::cout << "My number is: (" << my_phone.code << ") " << my_phone.exchange << "-" << my_phone.number << std::endl;
+	std::cout << "Your number is: (" << your_phone.code << ") " << your_phone.exchange << "-" << your_phone.number << std::endl;
 
 	return EXIT_SUCCESS;
 }
