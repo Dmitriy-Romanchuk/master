@@ -14,9 +14,15 @@ int main()
 
 	while (repeat == 'y')
 	{
-		int  pounds1 = 0, shillings1 = 0, pence1 = 0;
-		int  pounds2 = 0, shillings2 = 0, pence2 = 0;
-		int  pounds = 0, shillings = 0, pence = 0; // for results
+		int pounds1 = 0;
+		int shillings1 = 0;
+		int pence1 = 0;
+		int pounds2 = 0;
+		int shillings2 = 0;
+		int pence2 = 0;
+		int pounds = 0;
+		int shillings = 0;
+		int pence = 0; // for results
 		float multiplay = 0.0f;
 		char ch = ' ';
 
@@ -25,15 +31,15 @@ int main()
 
 		std::cout << "Enter operation '+', '-' or '*'";// Выбор операции: сложение, вычитание, умножение и запрос на ввод значений
 		std::cin >> sign;
-		if (sign != '*')
+		if ('*' == sign)
 		{
-			std::cout << "Enter second amount: (3.2.6)";
-			std::cin >> pounds2 >> ch >> shillings2 >> ch >> pence2;
+			std::cout << "Enter multiply factor: ";
+			std::cin >> multiplay;	
 		}
 		else
 		{
-			std::cout << "Enter multiply factor: ";
-			std::cin >> multiplay;
+			std::cout << "Enter second amount: (3.2.6)";
+			std::cin >> pounds2 >> ch >> shillings2 >> ch >> pence2;
 		}
 		pence1 += shillings1 * 12 + pounds1 * 240; // перевод введенных сумм в пенсы
 		pence2 += shillings2 * 12 + pounds2 * 240;

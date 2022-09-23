@@ -48,9 +48,9 @@ int main()
 				std::cout << "Warning: \"" << sign << "\" is unknown operator" << std::endl;
 		}
 
-			std::cout << "Do another(y / n) ? "; // воспрос повторить или нет
-			std::cin >> repeat;
-		}
+		std::cout << "Do another(y / n) ? "; // воспрос повторить или нет
+		std::cin >> repeat;
+	}
 
-		return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }
