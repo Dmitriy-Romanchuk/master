@@ -17,9 +17,9 @@
 int main()
 {
 	char ch = ' ';
-	enum etype { laborer, secretary, manager, accountant, executive, researcher };
+	enum class etype { laborer, secretary, manager, accountant, executive, researcher };
 
-	etype emploee = laborer;
+	etype emploee = etype::laborer;
 	
 	std::cout << "Enter employee type(first letter only l, s, m, a, e, r)" << std::endl;
 	std::cin >> ch;
@@ -27,22 +27,22 @@ int main()
 	switch (ch)
 	{
 	case 'l':
-		emploee = laborer;
+		emploee = etype::laborer;
 		break;
 	case 's':
-		emploee = secretary;
+		emploee = etype::secretary;
 		break;
 	case 'm':
-		emploee = manager;
+		emploee = etype::manager;
 		break;
 	case 'a':
-		emploee = accountant;
+		emploee = etype::accountant;
 		break;
 	case 'e':
-		emploee = executive;
+		emploee = etype::executive;
 		break;
 	case 'r':
-		emploee = researcher;
+		emploee = etype::researcher;
 		break;
 	default:
 		std::cout << "unexpected letter!" << std::endl;
@@ -50,22 +50,22 @@ int main()
 
 	switch (emploee)
 	{
-	case laborer:
+	case etype::laborer:
 		std::cout << "Employee type is laborer";
 		break;
-	case secretary:
+	case etype::secretary:
 		std::cout << "Employee type is secretary";
 		break;
-	case manager:
+	case etype::manager:
 		std::cout << "Employee type is manager";
 		break;
-	case accountant:
+	case etype::accountant:
 		std::cout << "Employee type is accountant";
 		break;
-	case executive:
+	case etype::executive:
 		std::cout << "Employee type is executive";
 		break;
-	case researcher:
+	case etype::researcher:
 		std::cout << "Employee type is researcher";
 		break;
 	}

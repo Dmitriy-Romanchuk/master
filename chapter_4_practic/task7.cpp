@@ -17,14 +17,14 @@ int main()
 		int year = 1;
 	};
 
-	enum etype { laborer, secretary, manager, accountant, executive, researcher };
+	enum class etype { laborer, secretary, manager, accountant, executive, researcher };
 	
 	struct employee
 	{
 		int number = 0;
 		float salary = 0.0f;
 		date start_day;
-		etype title;
+		etype title = etype::laborer;
 	};
 
 	employee first;
@@ -44,22 +44,22 @@ int main()
 	switch (ch)
 	{
 	case 'l':
-		first.title = laborer;
+		first.title = etype::laborer;
 		break;
 	case 's':
-		first.title = secretary;
+		first.title = etype::secretary;
 		break;
 	case 'm':
-		first.title = manager;
+		first.title = etype::manager;
 		break;
 	case 'a':
-		first.title = accountant;
+		first.title = etype::accountant;
 		break;
 	case 'e':
-		first.title = executive;
+		first.title = etype::executive;
 		break;
 	case 'r':
-		first.title = researcher;
+		first.title = etype::researcher;
 		break;
 	default:
 		std::cout << "unexpected letter!" << std::endl;
@@ -77,22 +77,22 @@ int main()
 	switch (ch)
 	{
 	case 'l':
-		second.title = laborer;
+		second.title = etype::laborer;
 		break;
 	case 's':
-		second.title = secretary;
+		second.title = etype::secretary;
 		break;
 	case 'm':
-		second.title = manager;
+		second.title = etype::manager;
 		break;
 	case 'a':
-		second.title = accountant;
+		second.title = etype::accountant;
 		break;
 	case 'e':
-		second.title = executive;
+		second.title = etype::executive;
 		break;
 	case 'r':
-		second.title = researcher;
+		second.title = etype::researcher;
 		break;
 	default:
 		std::cout << "unexpected letter!" << std::endl;
@@ -110,22 +110,22 @@ int main()
 	switch (ch)
 	{
 	case 'l':
-		third.title = laborer;
+		third.title = etype::laborer;
 		break;
 	case 's':
-		third.title = secretary;
+		third.title = etype::secretary;
 		break;
 	case 'm':
-		third.title = manager;
+		third.title = etype::manager;
 		break;
 	case 'a':
-		third.title = accountant;
+		third.title = etype::accountant;
 		break;
 	case 'e':
-		third.title = executive;
+		third.title = etype::executive;
 		break;
 	case 'r':
-		third.title = researcher;
+		third.title = etype::researcher;
 		break;
 	default:
 		std::cout << "unexpected letter!" << std::endl;
@@ -138,22 +138,22 @@ int main()
 
 	switch (first.title)
 	{
-	case laborer:
+	case etype::laborer:
 		std::cout << "Employee type is laborer" << std::endl;
 		break;
-	case secretary:
+	case etype::secretary:
 		std::cout << "Employee type is secretary" << std::endl;
 		break;
-	case manager:
+	case etype::manager:
 		std::cout << "Employee type is manager" << std::endl;
 		break;
-	case accountant:
+	case etype::accountant:
 		std::cout << "Employee type is accountant" << std::endl;
 		break;
-	case executive:
+	case etype::executive:
 		std::cout << "Employee type is executive" << std::endl;
 		break;
-	case researcher:
+	case etype::researcher:
 		std::cout << "Employee type is researcher" << std::endl;
 		break;
 	}
@@ -165,22 +165,22 @@ int main()
 
 	switch (second.title)
 	{
-	case laborer:
+	case etype::laborer:
 		std::cout << "Employee type is laborer" << std::endl;
 		break;
-	case secretary:
+	case etype::secretary:
 		std::cout << "Employee type is secretary" << std::endl;
 		break;
-	case manager:
+	case etype::manager:
 		std::cout << "Employee type is manager" << std::endl;
 		break;
-	case accountant:
+	case etype::accountant:
 		std::cout << "Employee type is accountant" << std::endl;
 		break;
-	case executive:
+	case etype::executive:
 		std::cout << "Employee type is executive" << std::endl;
 		break;
-	case researcher:
+	case etype::researcher:
 		std::cout << "Employee type is researcher" << std::endl;
 		break;
 	}
@@ -192,22 +192,22 @@ int main()
 
 	switch (third.title)
 	{
-	case laborer:
+	case etype::laborer:
 		std::cout << "Employee type is laborer" << std::endl;
 		break;
-	case secretary:
+	case etype::secretary:
 		std::cout << "Employee type is secretary" << std::endl;
 		break;
-	case manager:
+	case etype::manager:
 		std::cout << "Employee type is manager" << std::endl;
 		break;
-	case accountant:
+	case etype::accountant:
 		std::cout << "Employee type is accountant" << std::endl;
 		break;
-	case executive:
+	case etype::executive:
 		std::cout << "Employee type is executive" << std::endl;
 		break;
-	case researcher:
+	case etype::researcher:
 		std::cout << "Employee type is researcher" << std::endl;
 		break;
 	}
