@@ -4,22 +4,24 @@
 // then retrieve the values from the variableand print them out in the same format.
 
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
 	char ch = ' ';
 	struct date
 	{
-		int month;
-		int day;
-		int year;
+		int month = 1;
+		int day = 1;
+		int year = 1;
 	};
 	date user_date;
 
 	std::cout << "Enter date in format dd/mm/yyyy: ";
 	std::cin >> user_date.day >> ch >> user_date.month >> ch >> user_date.year;
 
-	std::cout << "You Entered: " << user_date.day << ch << user_date.month << ch << user_date.year;
+	std::cout << std::setiosflags(std::ios::right) << std::setfill('0') << "You Entered: "
+		<< std::setw(2) << user_date.day << ch << std::setw(2) << user_date.month << ch << std::setw(4) << user_date.year;
 
 	return EXIT_SUCCESS;
 }

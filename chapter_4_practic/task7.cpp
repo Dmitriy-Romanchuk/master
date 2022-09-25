@@ -12,17 +12,17 @@ int main()
 	char ch = ' ';
 	struct date
 	{
-		int day;
-		int month;
-		int year;
+		int day = 1;
+		int month = 1;
+		int year = 1;
 	};
 
 	enum etype { laborer, secretary, manager, accountant, executive, researcher };
 	
 	struct employee
 	{
-		int number;
-		float salary;
+		int number = 0;
+		float salary = 0.0f;
 		date start_day;
 		etype title;
 	};

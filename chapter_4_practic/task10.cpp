@@ -13,9 +13,9 @@ int main()
 
 	struct sterling
 	{
-		int pounds;
-		int shillings;
-		int pence;
+		int pounds = 0;
+		int shillings = 0;
+		int pence = 0;
 	};
 
 	sterling st;

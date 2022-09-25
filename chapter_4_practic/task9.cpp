@@ -15,9 +15,9 @@ int main()
 
 	struct time
 	{
-		int hours;
-		int minutes;
-		int seconds;
+		int hours = 0;
+		int minutes = 0;
+		int seconds = 0;
 	};
 
 	time time1;

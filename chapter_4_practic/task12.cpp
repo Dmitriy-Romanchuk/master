@@ -16,8 +16,8 @@ int main()
 	
 	struct fraction
 	{
-		int nominator;
-		int denominator;
+		int nominator = 0;
+		int denominator = 1;
 	};
 
 	while (repeat == 'y')

@@ -9,8 +9,8 @@ int main()
 {
 	struct emploee
 	{
-		int number;
-		float compensation;
+		int number = 0;
+		float compensation = 0.0f;
 	};
 
 	emploee em1;

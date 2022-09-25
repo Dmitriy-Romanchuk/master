@@ -11,8 +11,8 @@ int main()
 {
 	struct Distance
 	{
-		float meter;
-		float cm;
+		float meter = 0.0f;
+		float cm = 0.0f;
 	};
 
 	struct Volume
@@ -23,6 +23,7 @@ int main()
 	};
 
 	Volume bedroom;
+	
 
 	bedroom.height.meter = 2;
 	bedroom.height.cm = 70;
