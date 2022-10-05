@@ -27,7 +27,7 @@ int main()
 
 void zero_smaller(int& a, int& b)
 {
-	if (a > b)
+	if (b < a)
 		b = 0;
 	else
 		a = 0;
