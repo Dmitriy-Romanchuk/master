@@ -53,7 +53,7 @@ int main()
 
 double power(double num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	for (int i = pow; i > 1; --i)
 		num *= num;
 
 	return num;
@@ -61,24 +61,24 @@ double power(double num, int pow)
 
 double power(char num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	double temp = num -'0';
 
-		num -= '0';
-		num *= num;
+	for (int i = pow; i > 1; --i)
+		temp *= temp;
 
-	return num;
+	return temp;
 }
 	
 double power(int num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	for (int i = pow; i > 1; --i)
 		num *= num;
 	return num;
 }
 
 double power(long num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	for (int i = pow; i > 1; --i)
 		num *= num;
 
 	return num;
@@ -86,7 +86,7 @@ double power(long num, int pow)
 
 double power(float num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	for (int i = pow; i > 1; --i)
 		num *= num;
 
 	return num;
