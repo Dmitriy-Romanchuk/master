@@ -10,7 +10,7 @@ struct Distance
 	float inches = 0.0f;
 };
 
-Distance compare (Distance, Distance);
+Distance findGreater (Distance, Distance);
 
 int main()
 {
@@ -28,24 +28,21 @@ int main()
 	std::cout << "Enter second inches (float): ";
 	std::cin >> second.inches;
 
-	result = compare(first, second);
+	result = findGreater (first, second);
 
 	std::cout << result.feet << "'-" << result.inches << "\"";
 
 	return EXIT_SUCCESS;
 }
 
-Distance compare(Distance d1, Distance d2)
+Distance findGreater (Distance d1, Distance d2)
 {
 	if (d1.feet > d2.feet)
 		return d1;
 	else if (d1.feet == d2.feet && d1.inches > d2.inches)
 		return d1;
 	else if (d1.feet == d2.feet && d1.inches == d2.inches)
-	{
-		std::cout << "Values are equivalent" << std::endl;
-		exit(EXIT_SUCCESS);
-	}
+		return d1;
 	else
 		return d2;
 }
