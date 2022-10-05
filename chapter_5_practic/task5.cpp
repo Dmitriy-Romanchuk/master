@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-inline int hms_to_secs(int h, int m, int s);
+inline long hms_to_secs(int h, int m, int s);
 
 int main()
 {
@@ -30,7 +30,7 @@ int main()
 	return EXIT_SUCCESS;
 }
 
-int hms_to_secs(int h, int m, int s)
+long hms_to_secs(int h, int m, int s)
 {
 	return h * 3600 + m * 60 + s;
 }
