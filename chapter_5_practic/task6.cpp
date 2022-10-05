@@ -22,8 +22,8 @@ const int sec_in_min = 60;
 char ch = ' ';
 long totalsec = 0;
 
-long time_to_secs(user_time);
-user_time secs_to_time(long);
+long time_to_secs(user_time time1);
+user_time secs_to_time(long total);
 
 int main()
 {
@@ -37,23 +37,18 @@ int main()
 	return EXIT_SUCCESS;
 }
 
-long time_to_secs(user_time t)
+long time_to_secs(user_time time1)
 {
-	totalsec = t.hours * sec_in_hour + t.minutes * sec_in_min + t.seconds;
+	totalsec = time1.hours * sec_in_hour + time1.minutes * sec_in_min + time1.seconds;
 	return totalsec;
 }
 
 user_time secs_to_time(long total)
 {
 	time2.hours = total / sec_in_hour;
-	time2.minutes = 0;
-	time2.seconds = total - time2.hours * sec_in_hour;
-
-	while (time2.seconds >= 60)
-	{
-		time2.seconds -= 60;
-		time2.minutes += 1;
-	}
-
+	time2.seconds = total % sec_in_hour; 
+	time2.minutes = time2.seconds / 60;  
+	time2.seconds = time2.seconds % 60;
+	
 	return time2;
 }
