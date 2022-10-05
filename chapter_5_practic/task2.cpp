@@ -35,7 +35,7 @@ int main()
 
 double power(double num, int pow)
 {
-	for (int i = pow; i > 1; i--)
+	for (int i = pow; i > 1; --i)
 		num *= num;
 
 	return num;
