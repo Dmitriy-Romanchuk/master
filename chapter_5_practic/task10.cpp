@@ -10,17 +10,16 @@
 void println_global();
 void println_local();
 
-int counter = 1;
+int counter_global = 0;
 
 int main()
 {
-
 	std::cout << "GLOBAL" << std::endl;
-	for (int i = 10; i > 0; i--)
+	for (int i = 10; i > 0; --i)
 		println_global();
 
 	std::cout <<std::endl << "LOCAL" << std::endl;
-	for (int i = 10; i > 0; i--)
+	for (int i = 10; i > 0; --i)
 		println_local();
 
 	return EXIT_SUCCESS;
@@ -28,13 +27,13 @@ int main()
 
 void println_global()
 {
-	std::cout << counter << std::endl;
-	counter++;
+	++counter_global;
+	std::cout << counter_global << std::endl;
 }
 
 void println_local()
 {
-	static int calculator = 1;
-	std::cout << calculator << std::endl;
-	calculator++;
+	static int counter_local = 0;
+	++counter_local;
+	std::cout << counter_local << std::endl;
 }
