@@ -21,11 +21,7 @@ void output(sterling result);
 
 int main()
 {
-	sterling st1 = user_input();
-	sterling st2 = user_input();
-
-	total(st1, st2);
-	output(total(st1, st2));
+	output(total (user_input(), user_input()));
 	
 	return EXIT_SUCCESS;
 }
@@ -39,8 +35,9 @@ sterling user_input()
 
 	std::cout << "Enter the amount of money (e.g. 5.10.6): ";
 	std::cin >> user_pounds >> ch >> user_shillings >> ch >> user_pence;
+	sterling from_user = { user_pounds, user_shillings, user_pence };
 
-	return { user_pounds, user_shillings, user_pence };
+	return from_user;
 }
 
 sterling total(sterling a, sterling b)
@@ -63,10 +60,9 @@ sterling total(sterling a, sterling b)
 		total_pounds += 1;
 	}
 	total_pounds += (a.pounds + b.pounds);
-
 	sterling result = { total_pounds, total_shillings, total_pence };
-	return result;
 
+	return result;
 }
 
 void output(sterling result)
