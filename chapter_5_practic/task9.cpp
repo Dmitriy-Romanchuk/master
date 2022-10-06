@@ -9,14 +9,14 @@ struct user_time
 	int seconds = 0;
 };
 
-user_time time1;
-user_time time2;
-char ch = ' ';
-
 inline void swap(user_time& a, user_time& b);
 
 int main()
 {
+	user_time time1;
+	user_time time2;
+	char ch = ' ';
+
 	std::cout << "Enter time in format hh/mm/ss: " << std::endl;
 	std::cin >> time1.hours >> ch >> time1.minutes >> ch >> time1.seconds;
 
