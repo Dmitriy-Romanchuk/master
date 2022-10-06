@@ -15,17 +15,14 @@ struct sterling
 	int pence = 0;
 };
 
-sterling st1;
-sterling st2;
-
 sterling user_input();
 sterling total(sterling a, sterling b);
-void output(sterling a);
+void output(sterling result);
 
 int main()
 {
-	st1 = user_input();
-	st2 = user_input();
+	sterling st1 = user_input();
+	sterling st2 = user_input();
 
 	total(st1, st2);
 	output(total(st1, st2));
@@ -35,35 +32,44 @@ int main()
 
 sterling user_input()
 {
-	sterling temp;
+	int user_pounds = 0;
+	int user_shillings = 0;
+	int user_pence = 0;
 	char ch = ' ';
+
 	std::cout << "Enter the amount of money (e.g. 5.10.6): ";
-	std::cin >> temp.pounds >> ch >> temp.shillings >> ch >> temp.pence;
-	return temp;
+	std::cin >> user_pounds >> ch >> user_shillings >> ch >> user_pence;
+
+	return { user_pounds, user_shillings, user_pence };
 }
 
 sterling total(sterling a, sterling b)
 {
-	sterling temp;
-	temp.pence = a.pence + b.pence; 
-	while (temp.pence > 11)
+	int total_pounds = 0;
+	int total_shillings = 0;
+	int total_pence = 0;
+	
+	total_pence = a.pence + b.pence;
+	while (total_pence > 11)
 	{
-		temp.pence -= 12;
-		temp.shillings += 1;
+		total_pence -= 12;
+		total_shillings += 1;
 	}
 
-	temp.shillings += (a.shillings + b.shillings); 
-	while (temp.shillings > 19)
+	total_shillings += (a.shillings + b.shillings);
+	while (total_shillings > 19)
 	{
-		temp.shillings -= 20;
-		temp.pounds += 1;
+		total_shillings -= 20;
+		total_pounds += 1;
 	}
-	temp.pounds += (a.pounds + b.pounds);
+	total_pounds += (a.pounds + b.pounds);
 
-	return temp;
+	sterling result = { total_pounds, total_shillings, total_pence };
+	return result;
+
 }
 
-void output(sterling a)
+void output(sterling result)
 {
-	std::cout << "Result is " << a.pounds << "." << a.shillings << "." << a.pence;
+	std::cout << "Result is " << result.pounds << "." << result.shillings << "." << result.pence << std::endl;
 }
