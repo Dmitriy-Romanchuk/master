@@ -12,17 +12,19 @@ private:
 	int day;
 	int month;
 	int year;
-	char ch;
+	
 public:
-	date() : month(0), day(0), year(0), ch(' ')
+	date() : month{ 0 }, day{ 0 }, year{ 0 }
 	{}
 	void getdate()
 	{
+		char ch { ' ' };
 		std::cout << "Enter date in format dd/mm/yyyy: ";
 		std::cin >> day >> ch >> month >> ch >> year;
 	}
 	void showdate() const
 	{
+		char ch{ ' ' };
 		std::cout << std::setiosflags(std::ios::right) << std::setfill('0') << "You Entered: "
 			<< std::setw(2) << day << ch << std::setw(2) << month << ch << std::setw(4) << year << std::endl;
 	}
