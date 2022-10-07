@@ -22,16 +22,16 @@ private:
 	unsigned int counter;
 	double revenue;
 public:
-	toolBooth() : counter(0), revenue(0.0)
+	toolBooth() : counter{ 0 }, revenue{ 0.0 }
 	{	}
 	void payingCar()
 	{
-		counter++;
+		++counter;
 		revenue += 0.5;
 	}
 	void nopayCar()
 	{
-		counter++;
+		++counter;
 	}
 	void display() const
 	{
