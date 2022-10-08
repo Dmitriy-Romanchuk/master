@@ -13,6 +13,9 @@
 
 enum class etype { laborer, secretary, manager, accountant, executive, researcher };
 
+template< class T >
+class optional;
+
 class date
 {
 private:
@@ -21,7 +24,7 @@ private:
 	int year;
 	char ch;
 public:
-	date() : month(0), day(0), year(0), ch(' ')
+	date() : month{ 0 }, day{ 0 }, year{ 0 }, ch{ ' ' }
 	{}
 	void getdate()
 	{
@@ -45,7 +48,7 @@ private:
 	char title;
 
 public:
-	emploee() : number(0), compensation(0), job_title(etype::manager), title('l')
+	emploee() : number{ 0 }, compensation{ 0 }, job_title(etype::manager), title{'l'}
 	{ }
 	void getemploy()
 	{
@@ -54,31 +57,38 @@ public:
 		std::cout << "Enter Salary of emploee number " << number << ": ";
 		std::cin >> compensation;
 		start_date.getdate();
-		std::cout << "Enter first letter of job_title (laborer, secretary, manager, accountant, executive, researcher) : ";
-		std::cin >> title;
-		switch (title)
+		bool repeat;
+		do
 		{
-		case 'l':
-			job_title = etype::laborer;
-			break;
-		case 's':
-			job_title = etype::secretary;
-			break;
-		case 'm':
-			job_title = etype::manager;
-			break;
-		case 'a':
-			job_title = etype::accountant;
-			break;
-		case 'e':
-			job_title = etype::executive;
-			break;
-		case 'r':
-			job_title = etype::researcher;
-			break;
-		default:
-			std::cout << "unexpected letter!" << std::endl;
-		}
+			std::cout << "Enter first letter of job_title (l, s, m, a, e, r) : ";
+			std::cin >> title;
+			repeat = false;
+
+			switch (title)
+			{
+			case 'l':
+				job_title = etype::laborer;
+				break;
+			case 's':
+				job_title = etype::secretary;
+				break;
+			case 'm':
+				job_title = etype::manager;
+				break;
+			case 'a':
+				job_title = etype::accountant;
+				break;
+			case 'e':
+				job_title = etype::executive;
+				break;
+			case 'r':
+				job_title = etype::researcher;
+				break;
+			default:
+				std::cout << "Unexpected letter! Repeat again" << std::endl;
+				repeat = true;
+			}
+		} while (repeat);
 	}
 		
 	void putemploy() const
