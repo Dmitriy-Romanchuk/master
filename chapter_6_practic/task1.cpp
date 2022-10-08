@@ -13,9 +13,9 @@ class Int
 private:
 	int value;
 public:
-	Int() : value(0)
+	Int() : value{ 0 }
 	{	}
-	Int(int a) : value(a)
+	Int(int a) : value{ a }
 	{	}
 	void show_value() const
 	{
