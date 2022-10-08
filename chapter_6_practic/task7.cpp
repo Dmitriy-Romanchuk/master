@@ -24,10 +24,8 @@ private:
 	float minutes;
 	char direction;
 public:
-	angle() : degrees(0), minutes(0.0), direction('W')
-	{}
-	angle(int deg, float min, char dir) : degrees(deg), minutes(min), direction(dir)
-	{}
+	angle();
+	angle(int deg, float min, char dir);
 	void setdata();
 	void showdata() const;
 };
@@ -54,6 +52,20 @@ int main()
 	} while ('y' == ch);
 
 	return EXIT_SUCCESS;
+}
+
+angle::angle()
+{
+	degrees = 0;
+	minutes = 0.0;
+	direction = 'W';
+}
+
+angle::angle(int deg, float min, char dir)
+{
+	degrees = deg;
+	minutes = min;
+	direction = dir ;
 }
 
 void angle::setdata()
