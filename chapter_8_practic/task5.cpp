@@ -71,10 +71,7 @@ user_time::user_time(int h, int m, int s) : hours(h), minutes(m), seconds(s)
 user_time user_time::operator+ (user_time b)
 {
 	int totalsec = hours * 3600 + minutes * 60 + seconds + b.hours * 3600 + b.minutes * 60 + b.seconds;
-	hours = totalsec / 3600;
-	minutes = (totalsec % 3600) / 60;
-	seconds = (totalsec % 3600) % 60;
-	return user_time(hours, minutes, seconds);
+	return converting_time(totalsec);
 }
 
 user_time user_time::converting_time(int totalsec)
@@ -98,14 +95,16 @@ user_time user_time::operator++()
 
 	return converting_time(temp_sec);
 }
+
 user_time user_time::operator++(int)
 {
 	user_time temp;
 	int totalsec = hours * 3600 + minutes * 60 + seconds;
-	int temp_sec = totalsec--;
+	int temp_sec = totalsec++;
 	converting_time(totalsec);
 	return temp.converting_time(temp_sec);
 }
+
 user_time user_time::operator--()
 {
 	int totalsec = hours * 3600 + minutes * 60 + seconds;
