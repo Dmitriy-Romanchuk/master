@@ -21,24 +21,13 @@ private:
 	int custom_max_1 = 0;
 	int custom_max_2 = 0;
 public:
-	matrix()
-	{}
-	matrix(int a, int b)
-	{
-		custom_max_1 = a;
-		custom_max_2 = b;
+	
+	matrix(int a, int b) : custom_max_1(a), custom_max_2 (b)
+	{	
 		limit[custom_max_1][custom_max_2];
 	}
 	void putel(int index1, int index2, int value);
 	int getel(int index1, int index2);
-	int get_custom_max_1()
-	{
-		return custom_max_1;
-	}
-	int get_custom_max_2()
-	{
-		return custom_max_2;
-	}
 };
 
 int main()
