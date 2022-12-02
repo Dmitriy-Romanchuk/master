@@ -42,24 +42,12 @@ sterling user_input()
 
 sterling total(sterling a, sterling b)
 {
-	int total_pounds = 0;
-	int total_shillings = 0;
-	int total_pence = 0;
+	int total_sterling = (a.pounds + b.pounds) * 240 + (a.shillings + b.shillings) * 12 + a.pence + b.pence;
 	
-	total_pence = a.pence + b.pence;
-	while (total_pence > 11)
-	{
-		total_pence -= 12;
-		total_shillings += 1;
-	}
+	int total_pounds = total_sterling / 240;
+	int total_shillings = (total_sterling % 240) / 12;
+	int total_pence = (total_sterling % 240) % 12;
 
-	total_shillings += (a.shillings + b.shillings);
-	while (total_shillings > 19)
-	{
-		total_shillings -= 20;
-		total_pounds += 1;
-	}
-	total_pounds += (a.pounds + b.pounds);
 	sterling result = { total_pounds, total_shillings, total_pence };
 
 	return result;
