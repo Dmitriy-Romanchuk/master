@@ -39,7 +39,7 @@ int main()
 	char repeat = 'y';
 	int counter = 0;
 
-	for (int j = 0; j < MAX; j++)
+	for (int j = 0; j < MAX; ++j)
 	{
 		managers[j].getdata();
 		std::cout << "y - to the next name. Press any button to exit ";
@@ -51,11 +51,11 @@ int main()
 			continue;
 		else             //output
 		{
-			for (int i = 0; i < counter; i++)
+			for (int i = 0; i < counter; ++i)
 			{
 				managers[i].putdata();
 			}
-			exit(EXIT_SUCCESS);
+			break;
 		}
 	}
 	
