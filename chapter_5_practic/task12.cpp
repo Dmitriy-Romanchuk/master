@@ -7,7 +7,7 @@
 
 struct fraction
 {
-	int nominator = 0;
+	int numerator = 0;
 	int denominator = 1;
 };
 
@@ -31,13 +31,13 @@ int main()
 		char sign = ' ';
 
 		std::cout << "Enter first fraction : for example 1/2" << std::endl;
-		std::cin >> first.nominator >> i >> first.denominator;
+		std::cin >> first.numerator >> i >> first.denominator;
 		std::cout << "Enter operation '+', '-', '*', '/' ";
 		std::cin >> sign;
 		std::cout << "Enter second fraction : for example 2/5" << std::endl;
-		std::cin >> second.nominator >> i >> second.denominator;
+		std::cin >> second.numerator >> i >> second.denominator;
 
-		switch (sign) // калькулятор
+		switch (sign) // calculator
 		{
 		case '+':
 			output(fadd(first, second));
@@ -55,7 +55,7 @@ int main()
 			std::cout << "Warning: \"" << sign << "\" is unknown operator" << std::endl;
 		}
 
-		std::cout << "Do another(y / n) ? "; // воспрос повторить или нет
+		std::cout << "Do another(y / n) ? "; // yes/no question
 		std::cin >> repeat;
 	}
 
@@ -64,37 +64,38 @@ int main()
 
 fraction fadd(fraction first, fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator * second.denominator + first.denominator * second.nominator;
-	temp.denominator = first.denominator * second.denominator;
+	int const numerator = first.numerator * second.denominator + first.denominator * second.numerator;
+	int const denominator = first.denominator * second.denominator;
+	fraction temp{ numerator, denominator };
+
 	return temp;
 }
 
 fraction fsub(fraction first, fraction second)
 {
-	fraction temp;
-	temp.nominator =  first.nominator* second.denominator - first.denominator * second.nominator;
-	temp.denominator = first.denominator * second.denominator;
+	int const numerator =  first.numerator* second.denominator - first.denominator * second.numerator;
+	int const denominator = first.denominator * second.denominator;
+	fraction temp{ numerator, denominator };
 	return temp;
 }
 
 fraction fmul(fraction first, fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator* second.nominator;
-	temp.denominator = first.denominator* second.denominator;
+	int const numerator = first.numerator* second.numerator;
+	int const denominator = first.denominator* second.denominator;
+	fraction temp{ numerator, denominator };
 	return temp;
 }
 
 fraction fdiv(fraction first, fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator* second.denominator;
-	temp.denominator = first.denominator* second.nominator;
+	int const numerator = first.numerator* second.denominator;
+	int const denominator = first.denominator* second.numerator;
+	fraction temp{ numerator, denominator };
 	return temp;
 }
 
 void output(fraction a)
 {
-	std::cout << "Result is: " << a.nominator << "/" << a.denominator << std::endl;
+	std::cout << "Result is: " << a.numerator << "/" << a.denominator << std::endl;
 }
