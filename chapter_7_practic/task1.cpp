@@ -27,11 +27,12 @@ int main()
 void reversit(char str[])
 {
 	char temp = ' ';
+	int lenght = strlen(str);
 	
-	for (int i = 0; i < strlen(str) / 2; i++)
+	for (int i = 0; i < lenght / 2; ++i)
 	{
 		temp = str[i];
-		str[i] = str[strlen(str) - i - 1];
-		str[strlen(str) - i - 1] = temp;
+		str[i] = str[lenght - i - 1];
+		str[lenght - i - 1] = temp;
 	}
 }
