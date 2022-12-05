@@ -29,20 +29,21 @@ public:
 	}
 	string operator += (string ss)
 	{
+		int source_str = strlen(str);
+		int addes_str = strlen(ss.str);
 
-		if (strlen(str) + strlen(ss.str) < SZ)
+		if (source_str + addes_str < SZ)
 			return strcat(str, ss.str);
 		else
 		{
 			std::cout << "Text is too long" << std::endl;
-			exit(1);
+			exit(EXIT_FAILURE);
 		}
 	}
 };
 
 int main()
 {
-
 	string s1 = "Hello_";
 	string s2 = "Dima";
 	string s3 = "Test";
