@@ -50,11 +50,6 @@ Distance Distance::operator-(Distance d2)
 
 	int f = result / 12;
 	float i = result - f * 12;
-	if (i >= 12)
-	{
-		i -= 12;
-		++f;
-	}
 
 	return Distance(f, i);
 }
