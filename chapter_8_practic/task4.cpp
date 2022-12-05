@@ -19,7 +19,7 @@ public:
 	Int operator* (Int b);
 	Int operator/ (Int b);
 	void show_value() const;
-	long double compare(long double result) const;
+	long int compare(long int result) const;
 };
 
 int main()
@@ -51,29 +51,29 @@ Int::Int(int a) : value{ a }
 
 Int Int::operator+ (Int b)
 {
-	long double result;
-	result = static_cast<long double>(value) + b.value;
+	long int result;
+	result = static_cast<long int>(value) + b.value;
 	return compare(result);
 }
 
 Int Int::operator- (Int b)
 {
-	long double result;
-	result = static_cast<long double>(value) - b.value;
+	long int result;
+	result = static_cast<long int>(value) - b.value;
 	return compare(result);
 }
 
 Int Int::operator* (Int b)
 {
-	long double result;
-	result = static_cast<long double>(value) * b.value;
+	long int result;
+	result = static_cast<long int>(value) * b.value;
 	return compare(result);
 }
 
 Int Int::operator/ (Int b)
 {
-	long double result;
-	result = static_cast<long double>(value) / b.value;
+	long int result;
+	result = static_cast<long int>(value) / b.value;
 	return compare(result);
 }
 
@@ -82,7 +82,7 @@ void Int::show_value() const
 	std::cout << value << std::endl;
 }
 
-long double Int::compare(long double result) const
+long int Int::compare(long int result) const
 {
 	const int min = -2147483648;
 	const int max = 2147483647;
