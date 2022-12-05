@@ -13,12 +13,12 @@
 class fraction
 {
 private:
-	int nominator;
+	int numerator;
 	int denominator;
 public:
-	fraction() : nominator(0), denominator(1)
+	fraction() : numerator(0), denominator(1)
 	{}
-	fraction(int a, int b) : nominator(a), denominator(b)
+	fraction(int a, int b) : numerator(a), denominator(b)
 	{}
 	void input_value();
 	void output();
@@ -31,14 +31,13 @@ public:
 	bool operator!= (fraction) const;
 };
 
-fraction first;
-fraction second;
-fraction third;
-fraction test(0, 1);
-char sign = ' ';
-
 int main()
 {
+	fraction first;
+	fraction second;
+	fraction third;
+	fraction test(0, 1);
+	char sign = ' ';
 	char repeat = 'y';
 
 	while (repeat == 'y')
@@ -94,44 +93,40 @@ void fraction::input_value()
 	char i = ' ';
 
 	std::cout << "Enter fraction : for example 1/2" << std::endl;
-	std::cin >> nominator >> i >> denominator;
+	std::cin >> numerator >> i >> denominator;
 }
 
 fraction fraction::operator+ (fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator * second.denominator + first.denominator * second.nominator;
-	temp.denominator = first.denominator * second.denominator;
-	return temp;
+	int const num = numerator * second.denominator + denominator * second.numerator;
+	int const denom = denominator * second.denominator;
+	return  { num, denom };
 }
 
 fraction fraction::operator- (fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator * second.denominator - first.denominator * second.nominator;
-	temp.denominator = first.denominator * second.denominator;
-	return temp;
+	int const num = numerator * second.denominator - denominator * second.numerator;
+	int const denom = denominator * second.denominator;
+	return  { num, denom };
 }
 
 fraction fraction::operator* (fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator * second.nominator;
-	temp.denominator = first.denominator * second.denominator;
-	return temp;
+	int const num = numerator * second.numerator;
+	int const denom = denominator * second.denominator;
+	return  { num, denom };
 }
 
 fraction fraction::operator/ (fraction second)
 {
-	fraction temp;
-	temp.nominator = first.nominator * second.denominator;
-	temp.denominator = first.denominator * second.nominator;
-	return temp;
+	int const num = numerator * second.denominator;
+	int const denom = denominator * second.numerator;
+	return  { num, denom };
 }
 
 bool fraction::operator== (fraction test) const
 {
-	if ((nominator == test.nominator) && (denominator == test.denominator))
+	if ((numerator == test.numerator) && (denominator == test.denominator))
 		return true;
 	else
 		return false;
@@ -139,7 +134,7 @@ bool fraction::operator== (fraction test) const
 
 bool fraction::operator!= (fraction test) const
 {
-	if ((nominator == test.nominator) && (denominator == test.denominator))
+	if ((numerator == test.numerator) && (denominator == test.denominator))
 		return false;
 	else
 		return true;
@@ -152,7 +147,7 @@ void fraction::lowterms() // change ourself to lowest terms
 	long temp = 0;
 	long gcd = 0;
 
-	tnum = labs(nominator); // use non-negative copies
+	tnum = labs(numerator); // use non-negative copies
 	tden = labs(denominator); // (needs cmath)
 	if (tden == 0) // check for n/0
 	{
@@ -161,7 +156,7 @@ void fraction::lowterms() // change ourself to lowest terms
 	}
 	else if (tnum == 0) // check for 0/n
 	{
-		nominator = 0;
+		numerator = 0;
 		denominator = 1;
 		return;
 	}
@@ -176,11 +171,11 @@ void fraction::lowterms() // change ourself to lowest terms
 		tnum = tnum - tden; // subtract them
 	}
 	gcd = tden; // this is greatest common divisor
-	nominator = nominator / gcd; // divide both num and den by gcd
+	numerator = numerator / gcd; // divide both num and den by gcd
 	denominator = denominator / gcd; // to reduce frac to lowest terms
 }
 
 void fraction::output()
 {
-	std::cout << "Result is: " << nominator << "/" << denominator << std::endl;
+	std::cout << "Result is: " << numerator << "/" << denominator << std::endl;
 }
