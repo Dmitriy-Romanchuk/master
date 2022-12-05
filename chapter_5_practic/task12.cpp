@@ -11,18 +11,17 @@ struct fraction
 	int denominator = 1;
 };
 
-fraction fadd(fraction, fraction);
-fraction fsub(fraction, fraction);
-fraction fmul(fraction, fraction);
-fraction fdiv(fraction, fraction);
+auto fadd(fraction, fraction);
+auto fsub(fraction, fraction);
+auto fmul(fraction, fraction);
+auto fdiv(fraction, fraction);
 void output(fraction a);
-
-fraction first;
-fraction second;
-fraction third;
 
 int main()
 {
+	fraction first;
+	fraction second;
+	fraction third;
 	char repeat = 'y';
 
 	while (repeat == 'y')
@@ -62,37 +61,32 @@ int main()
 	return EXIT_SUCCESS;
 }
 
-fraction fadd(fraction first, fraction second)
+auto fadd(fraction first, fraction second)
 {
 	int const numerator = first.numerator * second.denominator + first.denominator * second.numerator;
 	int const denominator = first.denominator * second.denominator;
-	fraction temp{ numerator, denominator };
-
-	return temp;
+	return fraction { numerator, denominator };
 }
 
-fraction fsub(fraction first, fraction second)
+auto fsub(fraction first, fraction second)
 {
 	int const numerator =  first.numerator* second.denominator - first.denominator * second.numerator;
 	int const denominator = first.denominator * second.denominator;
-	fraction temp{ numerator, denominator };
-	return temp;
+	return fraction{ numerator, denominator };
 }
 
-fraction fmul(fraction first, fraction second)
+auto fmul(fraction first, fraction second)
 {
 	int const numerator = first.numerator* second.numerator;
 	int const denominator = first.denominator* second.denominator;
-	fraction temp{ numerator, denominator };
-	return temp;
+	return fraction { numerator, denominator };
 }
 
-fraction fdiv(fraction first, fraction second)
+auto fdiv(fraction first, fraction second)
 {
 	int const numerator = first.numerator* second.denominator;
 	int const denominator = first.denominator* second.numerator;
-	fraction temp{ numerator, denominator };
-	return temp;
+	return fraction { numerator, denominator };
 }
 
 void output(fraction a)
