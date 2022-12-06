@@ -23,15 +23,13 @@ public:
 	}
 	user_time operator+ (user_time b)
 	{
-		int totalsec = hours * 3600 + minutes * 60 + seconds + b.hours * 3600 + b.minutes * 60 + b.seconds;
-		hours = totalsec / 3600;
-		minutes = 0;
-		seconds = totalsec - hours * 3600;
-		while (seconds >= 60)
-		{
-			seconds -= 60;
-			minutes += 1;
-		}
+		int const secondsInHour = 3600;
+		int const secondsInMinute = 60;
+		int totalsec = hours * secondsInHour + minutes * secondsInMinute + seconds + b.hours * secondsInHour + b.minutes * secondsInMinute + b.seconds;
+		hours = totalsec / secondsInHour;
+		minutes = (totalsec % secondsInHour) / secondsInMinute;
+		seconds = (totalsec % secondsInHour) % secondsInMinute;
+		
 		return user_time(hours, minutes, seconds);
 	}
 };
@@ -41,7 +39,7 @@ int main()
 	user_time time1(2, 30, 21);
 	user_time time2(7, 15, 40);
 	user_time time3;
-
+	
 	time1.display();
 	time2.display();
 	time3 = time1 + time2;
