@@ -47,27 +47,35 @@ user_time::user_time(int h, int m, int s) : hours(h), minutes(m), seconds(s)
 
 user_time user_time::operator+ (user_time b)
 {
-	int totalsec = hours * 3600 + minutes * 60 + seconds + b.hours * 3600 + b.minutes * 60 + b.seconds;
+	int const secondsInHour = 3600;
+	int const secondsInMinute = 60;
+	int totalsec = hours * secondsInHour + minutes * secondsInMinute + seconds + b.hours * secondsInHour + b.minutes * secondsInMinute + b.seconds;
 	return converting_time(totalsec);
 }
 
 user_time user_time::operator- (user_time b)
 {
-	int totalsec = (hours * 3600 + minutes * 60 + seconds) - (b.hours * 3600 + b.minutes * 60 + b.seconds);
+	int const secondsInHour = 3600;
+	int const secondsInMinute = 60;
+	int totalsec = (hours * secondsInHour + minutes * secondsInMinute + seconds) - (b.hours * secondsInHour + b.minutes * secondsInMinute + b.seconds);
 	return converting_time(totalsec);
 }
 
 user_time user_time::operator* (user_time b)
 {
-	int totalsec = (hours * 3600 + minutes * 60 + seconds) * (b.hours * 3600 + b.minutes * 60 + b.seconds);
+	int const secondsInHour = 3600;
+	int const secondsInMinute = 60;
+	int totalsec = (hours * secondsInHour + minutes * secondsInMinute + seconds) * (b.hours * secondsInHour + b.minutes * secondsInMinute + b.seconds);
 	return converting_time(totalsec);
 }
 
 user_time user_time::converting_time(int totalsec)
 {
-	hours = totalsec / 3600;
-	minutes = (totalsec % 3600) / 60;
-	seconds = (totalsec % 3600) % 60;
+	int const secondsInHour = 3600;
+	int const secondsInMinute = 60;
+	hours = totalsec / secondsInHour;
+	minutes = (totalsec % secondsInHour) / secondsInMinute;
+	seconds = (totalsec % secondsInHour) % secondsInMinute;
 	return user_time(hours, minutes, seconds);
 }
 
