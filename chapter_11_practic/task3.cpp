@@ -17,7 +17,6 @@
 
 class Array
 {
-private:
 	int* ptr;
 	int size;
 public:
@@ -28,7 +27,7 @@ public:
 		size = s;
 		ptr = new int[s];
 	}
-	Array(Array& arr)
+	Array(const Array& arr)
 	{
 		size = arr.size;
 		ptr = new int[size];
@@ -43,7 +42,7 @@ public:
 	{
 		return *(ptr + j);
 	}
-	Array& operator= (Array& arr)
+	Array& operator= (const Array& arr)
 	{
 		if (this == &arr) 
 			return *this;
