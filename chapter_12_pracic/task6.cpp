@@ -30,7 +30,7 @@ public:
 	void showData();
 	void write_to_disk();
 	void read_from_disk(int);
-	static int diskCount();
+	static unsigned int diskCount();
 };
 
 int main()
@@ -86,11 +86,11 @@ void Name::read_from_disk(int rec)
 		count++;
 }
 
-int Name::diskCount()
+unsigned int Name::diskCount()
 {
 	std::fstream infile; 
 	infile.open("PERSFILE.txt");
-	int count = 0;
+	unsigned int count = 0;
 	std::string name, middle, surname;
 	unsigned long number;
 	while (infile >> number >> name >> middle >> surname)

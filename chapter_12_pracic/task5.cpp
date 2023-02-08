@@ -54,9 +54,9 @@ int main()
 
 void user_time::get_time()
 {
-	int limit_hours = 23;
-	int limit_minutes = 59;
-	int limit_seconds = 59;
+	const int limit_hours = 23;
+	const int limit_minutes = 59;
+	const int limit_seconds = 59;
 
 	while (true)
 	{
