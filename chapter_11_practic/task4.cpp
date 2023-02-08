@@ -48,7 +48,7 @@ public:
 	}
 	bool isOversize()
 	{
-		return (pages > 800);
+		return pages > 800;
 	}
 };
 
